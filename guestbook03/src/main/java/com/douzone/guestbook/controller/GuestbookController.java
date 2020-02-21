@@ -21,33 +21,25 @@ public class GuestbookController {
 	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String index(Model model) {
 		List<GuestbookVo> list = guestbookRepository.findAll();
-		System.out.println("index get");
 		model.addAttribute("list",list);
 		return "index";
 	}
 
 	@RequestMapping(value="",method = RequestMethod.POST)
-	public String index(GuestbookVo vo,Model model) {
-		System.out.println("index post");
+	public String index(GuestbookVo vo) {
 		guestbookRepository.insert(vo);
-		List<GuestbookVo> list = guestbookRepository.findAll();
-		model.addAttribute(list);
 		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/delete/{no}",method=RequestMethod.GET)
 	public String delete(@PathVariable("no")Long no,Model model) {
 		model.addAttribute("no", no);
-		System.out.println("delete get");
 		return "deleteform";
 	}
 	
 	@RequestMapping(value="/delete",method = RequestMethod.POST)
-	public String delete(GuestbookVo vo,Model model) {
-		System.out.println("delete post");
+	public String delete(GuestbookVo vo) {
 		guestbookRepository.delete(vo);
-		List<GuestbookVo> list = guestbookRepository.findAll();
-		model.addAttribute(list);
 		return "redirect:/";
 	}
 	
