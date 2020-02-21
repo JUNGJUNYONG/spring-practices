@@ -18,7 +18,7 @@ public class GuestbookController {
 	@Autowired
 	private GuestbookRepository guestbookRepository;
 	
-	@RequestMapping(value="",method=RequestMethod.GET)
+	@RequestMapping(value="/",method=RequestMethod.GET)
 	public String index(Model model) {
 		List<GuestbookVo> list = guestbookRepository.findAll();
 		System.out.println("index get");
@@ -32,7 +32,7 @@ public class GuestbookController {
 		guestbookRepository.insert(vo);
 		List<GuestbookVo> list = guestbookRepository.findAll();
 		model.addAttribute(list);
-		return "index";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/delete/{no}",method=RequestMethod.GET)
