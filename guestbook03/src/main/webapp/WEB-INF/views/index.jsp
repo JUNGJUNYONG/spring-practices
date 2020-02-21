@@ -30,11 +30,11 @@
 	</form>
 
 	<br>
-	
+	<c:set var="cnt" value="${fn:length(list) }"/>
 	<c:forEach items="${list }" var="vo" varStatus='status'>
 		<table border=1>
 			<tr>
-				<td>${status.count }</td>
+				<td>${cnt-status.index }</td>
 				<td>${vo.name}</td>
 				<td>${vo.regDate}</td>
 				<td><a href="${pageContext.request.contextPath }/delete/${vo.no}">삭제</a></td>
