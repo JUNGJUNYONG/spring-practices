@@ -14,5 +14,10 @@
 		<module>emaillist03</module>
 		<module>guestbook03</module>
 		<module>fileupload</module>
+		<module>logex</module>
+		<module>aoptest</module>
+		<module>container</module>
+		<module>hellospring04</module>
+		<module>hellospring05</module>
 	</modules>
 </project>
